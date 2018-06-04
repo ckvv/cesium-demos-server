@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.ck.mapper.ZZTaxiMapper">
+		<resultMap type="com.ck.entity.ZZTaxi" id="ZZTaxiList">
+		     <result column="x" property="x"/>
+		     <result column="y" property="y"/>
+		     <result column="value" property="value"/>
+		</resultMap>
+	
+	    <select id="selectZZTaxisByTime" parameterType="String" resultMap="ZZTaxiList">
+	        SELECT x,y,value
+			FROM public."zztaxi"
+			WHERE t_time = #{t_time};  
+	    </select>
+	</mapper>

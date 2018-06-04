@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.ck.mapper.UserEntityMapper">
+		<resultMap type="com.ck.entity.UserEntity" id="userEntityList">
+		     <result column="entity" property="entity"/>   
+		</resultMap>
+	
+	    <select id="selectEntitysByName" parameterType="String" resultMap="userEntityList">
+	        SELECT entity
+			FROM public."user_entitys"
+			WHERE name = #{name};  
+	    </select>
+	    
+	    <insert id="insertEntity">
+	    	INSERT INTO public."user_entitys"(
+			name, entity)
+			VALUES (#{name}, #{entity});
+	    </insert>
+	    <delete id="deleteEntityByName">
+	    </delete>
+	</mapper>
+
